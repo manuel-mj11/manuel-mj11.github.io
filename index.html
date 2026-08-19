@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fondo Inversores | Oportunidades de inversión inmobiliaria en Madrid</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0f2438;
+    --navy-deep: #0a1a29;
+    --cream: #f6f2ea;
+    --cream-soft: #efe8db;
+    --gold: #b98a4e;
+    --gold-soft: #e4cba3;
+    --ink: #16232f;
+    --line: rgba(15,36,56,0.12);
+    --line-light: rgba(246,242,234,0.18);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',serif;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* -------- Header -------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,242,234,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 24px;max-width:1120px;margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces',serif;font-weight:600;font-size:20px;
+    letter-spacing:0.02em;color:var(--navy);
+  }
+  .brand span{color:var(--gold);}
+  .nav-links{display:flex;gap:32px;font-size:14px;font-weight:500;}
+  .nav-links a{color:var(--navy);opacity:0.75;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{
+    background:var(--navy);color:var(--cream)!important;
+    padding:10px 20px;border-radius:2px;font-size:14px;font-weight:600;
+    opacity:1!important;
+  }
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:4px;}
+  .menu-btn span{display:block;width:22px;height:2px;background:var(--navy);margin:5px 0;}
+
+  /* -------- Hero -------- */
+  .hero{
+    background:var(--navy);color:var(--cream);
+    padding:100px 0 90px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:'';position:absolute;right:-120px;top:-120px;
+    width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle, rgba(185,138,78,0.18), transparent 70%);
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;position:relative;}
+  .hero-inner{max-width:640px;position:relative;}
+  .hero-media{position:relative;border-radius:2px;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--line-light);}
+  .hero-media img{width:100%;height:100%;object-fit:cover;}
+  .hero-media::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(15,36,56,0) 55%, rgba(10,26,41,0.55) 100%);
+  }
+  .hero-media .cap{
+    position:absolute;left:20px;bottom:18px;z-index:2;font-size:13px;
+    color:var(--cream);opacity:0.85;letter-spacing:0.02em;
+  }
+
+  /* ---- reveal-on-scroll ---- */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .reveal-delay-1.visible{transition-delay:.1s;}
+  .reveal-delay-2.visible{transition-delay:.2s;}
+  .reveal-delay-3.visible{transition-delay:.3s;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+
+  /* ---- asset gallery ---- */
+  .gallery{padding:64px 0;}
+  .gallery-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:16px;}
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;border-radius:2px;}
+  .gallery-item{position:relative;overflow:hidden;border-radius:2px;aspect-ratio:1/1;}
+  .gallery-grid .gallery-item:first-child{aspect-ratio:auto;}
+  .gallery-item .tag{
+    position:absolute;left:14px;bottom:14px;background:rgba(15,36,56,0.75);
+    color:var(--cream);font-size:12px;padding:6px 12px;letter-spacing:0.03em;border-radius:2px;
+  }
+  .eyebrow{
+    font-size:13px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:600;margin-bottom:20px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);}
+  .hero h1{
+    font-size:clamp(34px,5.4vw,58px);font-weight:500;line-height:1.12;
+    letter-spacing:-0.01em;margin-bottom:22px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-soft);}
+  .hero p{
+    font-size:18px;color:rgba(246,242,234,0.78);max-width:520px;margin-bottom:36px;
+  }
+  .btn-row{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:15px 30px;font-size:14px;font-weight:600;
+    letter-spacing:0.02em;border-radius:2px;transition:all .2s;
+  }
+  .btn-primary{background:var(--gold);color:var(--navy-deep);}
+  .btn-primary:hover{background:var(--gold-soft);}
+  .btn-outline{border:1px solid var(--line-light);color:var(--cream);}
+  .btn-outline:hover{border-color:var(--gold-soft);color:var(--gold-soft);}
+
+  .trust-strip{
+    border-top:1px solid var(--line-light);margin-top:64px;padding-top:32px;
+    display:flex;gap:48px;flex-wrap:wrap;position:relative;
+  }
+  .trust-item{}
+  .trust-item .num{font-family:'Fraunces',serif;font-size:26px;color:var(--gold-soft);}
+  .trust-item .lbl{font-size:13px;color:rgba(246,242,234,0.6);margin-top:2px;}
+
+  /* -------- Section shared -------- */
+  section{padding:88px 0;}
+  .section-head{max-width:600px;margin-bottom:56px;}
+  .section-head .eyebrow{color:var(--gold);}
+  .section-head .eyebrow::before{background:var(--navy);}
+  .section-head h2{
+    font-size:clamp(26px,3.4vw,36px);font-weight:500;color:var(--navy);
+    letter-spacing:-0.01em;
+  }
+  .section-head p{color:rgba(22,35,47,0.65);margin-top:14px;font-size:16px;}
+
+  /* -------- Investor tiers -------- */
+  .tiers{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+  }
+  .tier{background:var(--cream);padding:40px 32px;position:relative;}
+  .tier.featured{background:var(--navy);color:var(--cream);}
+  .tier .tag{
+    font-size:12px;letter-spacing:0.08em;text-transform:uppercase;
+    font-weight:600;color:var(--gold);margin-bottom:18px;display:block;
+  }
+  .tier.featured .tag{color:var(--gold-soft);}
+  .tier .amount{font-family:'Fraunces',serif;font-size:34px;margin-bottom:6px;}
+  .tier .amount-lbl{font-size:13px;opacity:0.6;margin-bottom:24px;display:block;}
+  .tier p{font-size:14.5px;opacity:0.75;margin-bottom:28px;}
+  .tier .btn{width:100%;text-align:center;font-size:13px;padding:13px;}
+  .tier:not(.featured) .btn{background:var(--navy);color:var(--cream);}
+  .tier.featured .btn{background:var(--gold);color:var(--navy-deep);}
+
+  /* -------- Proyecto (dark band) -------- */
+  .project-band{
+    background:linear-gradient(120deg, rgba(10,26,41,0.94), rgba(10,26,41,0.88)), url('https://www.fondoinversores.es/wp-content/uploads/2023/10/Dame-una-palanca-2.jpg') center/cover;
+    color:var(--cream);
+  }
+  .project-band .wrap{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center;
+  }
+  .project-band h2{
+    font-size:clamp(26px,3.6vw,38px);font-weight:500;line-height:1.2;margin-bottom:20px;
+  }
+  .project-band p{color:rgba(246,242,234,0.7);font-size:16px;margin-bottom:32px;}
+  .checklist{list-style:none;display:grid;gap:16px;}
+  .checklist li{
+    display:flex;gap:14px;align-items:flex-start;font-size:14.5px;
+    color:rgba(246,242,234,0.85);padding:18px;border:1px solid var(--line-light);
+  }
+  .checklist li .mark{color:var(--gold-soft);font-family:'Fraunces',serif;font-size:18px;flex-shrink:0;}
+
+  /* -------- Contact -------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+  .contact-info h2{margin-bottom:16px;}
+  .contact-info p{color:rgba(22,35,47,0.65);margin-bottom:32px;}
+  .info-line{display:flex;gap:14px;margin-bottom:18px;font-size:15px;}
+  .info-line .k{color:var(--gold);font-weight:600;min-width:88px;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;padding-top:2px;}
+  form{display:grid;gap:16px;}
+  input,textarea{
+    width:100%;padding:15px 16px;border:1px solid var(--line);
+    background:transparent;font-family:'Inter',sans-serif;font-size:14.5px;
+    border-radius:2px;color:var(--ink);
+  }
+  input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;}
+  textarea{resize:vertical;min-height:120px;}
+  form .btn{border:none;cursor:pointer;background:var(--navy);color:var(--cream);width:fit-content;}
+  form .btn:hover{background:var(--navy-deep);}
+
+  footer{
+    background:var(--navy-deep);color:rgba(246,242,234,0.55);
+    padding:32px 0;font-size:13px;
+  }
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+
+  @media (max-width:860px){
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;gap:0;background:var(--cream);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:16px 24px;border-top:1px solid var(--line);opacity:1;}
+    .nav-cta{margin:16px 24px;text-align:center;}
+    .menu-btn{display:block;}
+    .tiers{grid-template-columns:1fr;}
+    .project-band .wrap{grid-template-columns:1fr;gap:40px;}
+    .contact-grid{grid-template-columns:1fr;gap:48px;}
+    .hero{padding:90px 0 70px;}
+    section{padding:64px 0;}
+    .trust-strip{gap:32px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="brand">FONDO <span>INVERSORES</span></div>
+    <div class="nav-links">
+      <a href="#oportunidad">Oportunidad</a>
+      <a href="#proyecto">Tu proyecto</a>
+      <a href="#sobre-nosotros">Sobre nosotros</a>
+      <a href="#contacto" class="nav-cta">Contactar</a>
+    </div>
+    <button class="menu-btn" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="eyebrow">Fondo de inversión inmobiliaria · Madrid</div>
+      <h1>Tu puerta de entrada a <em>oportunidades</em> de inversión sólidas</h1>
+      <p>Conectamos de forma sencilla y transparente a inversores particulares con oportunidades inmobiliarias por debajo de precio de mercado, con nuestros honorarios ya incluidos.</p>
+      <div class="btn-row">
+        <a href="#contacto" class="btn btn-primary">Hablar con un asesor</a>
+        <a href="#oportunidad" class="btn btn-outline">Ver oportunidades</a>
+      </div>
+      <div class="trust-strip">
+        <div class="trust-item"><div class="num">6%+</div><div class="lbl">Rentabilidad desde tu primera inversión</div></div>
+        <div class="trust-item"><div class="num">5.000€</div><div class="lbl">Entrada mínima para empezar</div></div>
+        <div class="trust-item"><div class="num">Madrid</div><div class="lbl">Sede en Calle de Ríos Rosas, 49</div></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="https://www.fondoinversores.es/wp-content/uploads/2023/10/Dame-una-palanca.jpg" alt="Dame una palanca y moveré el mundo">
+      <div class="cap">Cartera residencial · Madrid</div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="https://www.fondoinversores.es/wp-content/uploads/2023/10/Dame-una-palanca-2.jpg" alt="Fondo Inversores - oportunidad de inversión">
+        <span class="tag">Activo destacado</span>
+      </div>
+      <div class="gallery-item" style="display:flex;align-items:center;justify-content:center;background:var(--cream-soft);">
+        <img src="https://www.fondoinversores.es/wp-content/uploads/2020/12/FAVIFI.png" alt="Fondo Inversores" style="object-fit:contain;padding:32px;">
+      </div>
+      <div class="gallery-item">
+        <img src="https://www.fondoinversores.es/wp-content/uploads/2023/10/Dame-una-palanca.jpg" alt="Fondo Inversores">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="oportunidad">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Niveles de inversión</div>
+      <h2>Una oportunidad para cada perfil de inversor</h2>
+      <p>Desde tu primera inversión hasta carteras de mayor volumen, adaptamos el acceso a nuestra cartera de activos a tu punto de partida.</p>
+    </div>
+
+    <div class="tiers reveal">
+      <div class="tier">
+        <span class="tag">Primeros pasos</span>
+        <div class="amount">5.000€</div>
+        <span class="amount-lbl">Inversión inicial</span>
+        <p>Da tu primer paso como inversor con rentabilidades desde el 6% sobre tu capital principal, sin las limitaciones de las opciones tradicionales.</p>
+        <a href="#contacto" class="btn">Empezar ahora</a>
+      </div>
+      <div class="tier featured">
+        <span class="tag">Inversor experimentado</span>
+        <div class="amount">A medida</div>
+        <span class="amount-lbl">Precios por debajo de mercado</span>
+        <p>Acceso exclusivo a nuestra cartera de viviendas procedentes de entidades financieras, con condiciones ajustadas a tus objetivos.</p>
+        <a href="#contacto" class="btn">Consultar cartera</a>
+      </div>
+      <div class="tier">
+        <span class="tag">Inversor experto</span>
+        <div class="amount">20.000€</div>
+        <span class="amount-lbl">Grandes inversiones</span>
+        <p>Rentabilidad notoria y acceso prioritario a activos exclusivos, con acompañamiento directo de nuestro equipo de analistas.</p>
+        <a href="#contacto" class="btn">Solicitar acceso</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyecto" class="project-band">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--gold-soft)">Para emprendedores</div>
+      <h2>¿Tienes un proyecto y necesitas un aliado para hacerlo realidad?</h2>
+      <p>Somos el catalizador de proyectos de construcción y negocio con potencial. Ponemos capital, análisis de viabilidad y el respaldo de un equipo de analistas expertos al servicio de tu visión.</p>
+      <a href="#contacto" class="btn btn-primary">Presentar mi proyecto</a>
+    </div>
+    <ul class="checklist reveal reveal-delay-1">
+      <li><span class="mark">＋</span>Financiación directa para proyectos con potencial de crecimiento</li>
+      <li><span class="mark">＋</span>Análisis de viabilidad realizado por nuestro equipo de analistas</li>
+      <li><span class="mark">＋</span>Acompañamiento continuo desde la idea hasta la ejecución</li>
+      <li><span class="mark">＋</span>Sin compromiso en la primera consulta</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap contact-grid reveal">
+    <div class="contact-info">
+      <div class="eyebrow">Contacto</div>
+      <h2 class="serif" style="font-size:clamp(24px,3vw,32px);color:var(--navy);font-weight:500;">Cuéntanos qué buscas</h2>
+      <p>Escríbenos o llámanos, y un asesor te contactará para resolver tus dudas sin compromiso.</p>
+      <div class="info-line"><span class="k">Teléfono</span><span><a href="tel:673181660">673 181 660</a></span></div>
+      <div class="info-line"><span class="k">Email</span><span><a href="mailto:info@fondoinversores.es">info@fondoinversores.es</a></span></div>
+    </div>
+    <form>
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Cuéntanos tu objetivo de inversión o proyecto"></textarea>
+      <button type="submit" class="btn">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Fondo Inversores. Todos los derechos reservados.</div>
+    <div>Madrid, España</div>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  revealEls.forEach(el => observer.observe(el));
+
+  const menuBtn = document.querySelector('.menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+  if(menuBtn){
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
+</script>
+</body>
+</html>
